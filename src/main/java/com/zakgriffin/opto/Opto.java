@@ -48,8 +48,6 @@ public class Opto extends Application {
         resizeToFit(textField);
     }
 
-    Node workingVisual;
-
     @Override
     public void start(Stage stage) {
         Scene scene = new Scene(root, 1600, 800);

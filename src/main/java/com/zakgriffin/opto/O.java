@@ -1,6 +1,7 @@
 package com.zakgriffin.opto;
 
+import javafx.scene.Node;
+
 public interface O {
-    ObjectType getType();
-    ObjectProperty[] properties();
+    Node getNormalView(LookupBox owningLookupBox);
 }

@@ -1,20 +1,23 @@
 package com.zakgriffin.opto.objects;
 
-import com.zakgriffin.opto.O;
-import com.zakgriffin.opto.ObjectProperty;
-import com.zakgriffin.opto.ObjectType;
+import com.zakgriffin.opto.*;
 import javafx.beans.property.Property;
+import javafx.scene.Node;
 
-public class IntegerO implements O {
+public class IntegerO implements O, DefaultViewO {
     Property<Integer> integer;
 
+    public IntegerO(int i) {
+
+    }
+
     @Override
-    public ObjectType getType() {
-        return ObjectType.INTEGER;
+    public Node getNormalView(LookupBox owningLookupBox) {
+        return NormalView.defaultNormalView(this, owningLookupBox);
     }
 
     @Override
     public ObjectProperty[] properties() {
-        return new ObjectProperty[0];
+        return new ObjectProperty[] {};
     }
 }

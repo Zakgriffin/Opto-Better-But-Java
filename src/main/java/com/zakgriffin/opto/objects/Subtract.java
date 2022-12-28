@@ -1,17 +1,16 @@
 package com.zakgriffin.opto.objects;
 
-import com.zakgriffin.opto.O;
-import com.zakgriffin.opto.ObjectProperty;
-import com.zakgriffin.opto.ObjectType;
+import com.zakgriffin.opto.*;
 import javafx.beans.property.Property;
+import javafx.scene.Node;
 
-public class Subtract implements O {
+public class Subtract implements O, DefaultViewO {
     Property<O> minuendRegister;
     Property<O> subtrahendRegister;
 
     @Override
-    public ObjectType getType() {
-        return ObjectType.SUBTRACT;
+    public Node getNormalView(LookupBox owningLookupBox) {
+        return NormalView.defaultNormalView(this, owningLookupBox);
     }
 
     @Override

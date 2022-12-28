@@ -4,30 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b7c7b31-f5d2-499b-8510-415bf2263370" name="Changes" comment="" />
+    <list default="true" id="1b7c7b31-f5d2-499b-8510-415bf2263370" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/DefaultViewO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/If.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/CustomView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/FreshVisualPair.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/LookupBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/LookupBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/NormalView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/NormalView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/O.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/O.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/ObjectDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/ObjectDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/ObjectType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/Opto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/Opto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Add.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/DoThen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/DoThen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/IntegerO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/IntegerO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Subtract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Subtract.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2JWJfRcL6ipZXXOGV5ue10dpPZP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
   <component name="RunManager">
     <configuration name="Opto" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zakgriffin.opto.Opto" />
@@ -58,5 +84,16 @@
       <updated>1672188008208</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
