@@ -1,12 +1,11 @@
 package com.zakgriffin.opto.objects;
 
 import com.zakgriffin.opto.*;
-import javafx.beans.property.Property;
 import javafx.scene.Node;
 
 public class Add implements O, DefaultViewO {
-    Property<O> addendRegister;
-    Property<O> augendRegister;
+    ObservableO addendRegister = new ObservableO();
+    ObservableO augendRegister = new ObservableO();
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
@@ -14,10 +13,10 @@ public class Add implements O, DefaultViewO {
     }
 
     @Override
-    public ObjectProperty[] properties() {
-        return new ObjectProperty[] {
-                new ObjectProperty(addendRegister, "addend_register"),
-                new ObjectProperty(augendRegister, "augend_register")
+    public NamedObservableO[] namedObservableOs() {
+        return new NamedObservableO[] {
+                new NamedObservableO(addendRegister, "addend_register"),
+                new NamedObservableO(augendRegister, "augend_register")
         };
     }
 }

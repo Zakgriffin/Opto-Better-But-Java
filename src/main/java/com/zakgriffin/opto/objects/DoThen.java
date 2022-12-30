@@ -1,6 +1,7 @@
 package com.zakgriffin.opto.objects;
 
 import com.zakgriffin.opto.*;
+import javafx.beans.Observable;
 import javafx.beans.property.Property;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
@@ -9,8 +10,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 public class DoThen implements O {
-    Property<O> effect;
-    Property<O> nextDoThen;
+    ObservableO effect = new ObservableO();
+    ObservableO nextDoThen = new ObservableO();
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
@@ -18,20 +19,18 @@ public class DoThen implements O {
 
         HBox hbox = new HBox();
         objectContainer.getChildren().add(hbox);
-        Node lookupBoxNode = owningLookupBox.getNode();
-        hbox.getChildren().add(lookupBoxNode);
 
-        LookupBox effectLookupBox = new LookupBox(
-                (child) -> hbox.getChildren().add(child),
-                (child) -> hbox.getChildren().remove(child)
-        );
-        effectLookupBox.setPrompt("effect");
+        hbox.getChildren().add(owningLookupBox.getTextField());
 
-        LookupBox nextDoThenLookupBox = new LookupBox(
-                (child) -> objectContainer.getChildren().add(child),
-                (child) -> objectContainer.getChildren().remove(child)
-        );
-        nextDoThenLookupBox.setPrompt("next_do_then");
+        new LookupBox(effect, "effect", (oldNode, newNode) -> {
+            hbox.getChildren().remove(oldNode);
+            hbox.getChildren().add(newNode);
+        });
+
+        new LookupBox(effect, "next_do_then", (oldNode, newNode) -> {
+            objectContainer.getChildren().remove(oldNode);
+            objectContainer.getChildren().add(newNode);
+        });
 
         return objectContainer;
     }

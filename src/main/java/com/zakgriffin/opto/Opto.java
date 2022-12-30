@@ -64,12 +64,17 @@ public class Opto extends Application {
             HBox hbox = new HBox();
             root.getChildren().add(hbox);
 
-            LookupBox lookupBox = new LookupBox(
-                    (child) -> hbox.getChildren().add(child),
-                    (child) -> hbox.getChildren().remove(child)
-            );
+            ObservableO rootItem = new ObservableO();
 
-            lookupBox.requestFocus();
+            LookupBox lookupBox = new LookupBox(rootItem, "", (oldNode, newNode) -> {
+                hbox.getChildren().remove(oldNode);
+                hbox.getChildren().add(newNode);
+            });
+
+            Node textField = lookupBox.getTextField();
+            hbox.getChildren().add(textField);
+
+            lookupBox.getTextField().requestFocus();
             hbox.setTranslateX(clickEvent.getX());
             hbox.setTranslateY(clickEvent.getY());
         });

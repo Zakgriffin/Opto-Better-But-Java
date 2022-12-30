@@ -5,7 +5,7 @@ import javafx.beans.property.Property;
 import javafx.scene.Node;
 
 public class IntegerO implements O, DefaultViewO {
-    Property<Integer> integer;
+    ObservableO integer = new ObservableO();
 
     public IntegerO(int i) {
 
@@ -17,7 +17,7 @@ public class IntegerO implements O, DefaultViewO {
     }
 
     @Override
-    public ObjectProperty[] properties() {
-        return new ObjectProperty[] {};
+    public NamedObservableO[] namedObservableOs() {
+        return new NamedObservableO[]{};
     }
 }

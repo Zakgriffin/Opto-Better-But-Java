@@ -5,8 +5,8 @@ import javafx.beans.property.Property;
 import javafx.scene.Node;
 
 public class Subtract implements O, DefaultViewO {
-    Property<O> minuendRegister;
-    Property<O> subtrahendRegister;
+    ObservableO minuendRegister = new ObservableO();
+    ObservableO subtrahendRegister = new ObservableO();
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
@@ -14,10 +14,10 @@ public class Subtract implements O, DefaultViewO {
     }
 
     @Override
-    public ObjectProperty[] properties() {
-        return new ObjectProperty[] {
-                new ObjectProperty(minuendRegister, "minuend_register"),
-                new ObjectProperty(subtrahendRegister, "subtrahend_register")
+    public NamedObservableO[] namedObservableOs() {
+        return new NamedObservableO[] {
+                new NamedObservableO(minuendRegister, "minuend_register"),
+                new NamedObservableO(subtrahendRegister, "subtrahend_register")
         };
     }
 }

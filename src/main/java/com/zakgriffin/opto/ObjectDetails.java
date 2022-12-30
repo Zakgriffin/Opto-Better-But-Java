@@ -11,7 +11,6 @@ public class ObjectDetails {
             new ObjectDetails(Subtract::new, "subtract"),
             new ObjectDetails(Register::new, "register"),
             new ObjectDetails(DoThen::new, "do_then"),
-            new ObjectDetails(If::new, "if"),
     };
 
     Supplier<O> supplier;

@@ -5,16 +5,16 @@ import javafx.beans.property.Property;
 import javafx.scene.Node;
 
 public class Register implements O, DefaultViewO {
-    Property<O> number;
+    ObservableO number = new ObservableO();
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
         return NormalView.defaultNormalView(this, owningLookupBox);
     }
 
-    public ObjectProperty[] properties() {
-        return new ObjectProperty[]{
-                new ObjectProperty(number, "number")
+    public NamedObservableO[] namedObservableOs() {
+        return new NamedObservableO[]{
+                new NamedObservableO(number, "number")
         };
     }
 }
