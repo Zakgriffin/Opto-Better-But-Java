@@ -1,17 +1,18 @@
 package com.zakgriffin.opto.objects;
 
 import com.zakgriffin.opto.*;
-import javafx.beans.Observable;
-import javafx.beans.property.Property;
+import com.zakgriffin.opto.types.AnyType;
+import com.zakgriffin.opto.types.SetType;
+import com.zakgriffin.opto.types.TypeO;
 import javafx.scene.Node;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import java.util.Set;
+
 public class DoThen implements O {
-    ObservableO effect = new ObservableO();
-    ObservableO nextDoThen = new ObservableO();
+    Observable<O> effect = new Observable<>();
+    Observable<O> nextDoThen = new Observable<>();
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
@@ -22,15 +23,20 @@ public class DoThen implements O {
 
         hbox.getChildren().add(owningLookupBox.getTextField());
 
-        new LookupBox(effect, "effect", (oldNode, newNode) -> {
+        LookupBox effectLookupBox = new LookupBox(effect, "effect", (oldNode, newNode) -> {
             hbox.getChildren().remove(oldNode);
-            hbox.getChildren().add(newNode);
+            hbox.getChildren().add(1, newNode);
         });
+        hbox.getChildren().add(effectLookupBox.getTextField());
+        LookupBox.typeHelper(effectLookupBox, new SetType(Set.of(Add.class, Subtract.class)));
 
-        new LookupBox(effect, "next_do_then", (oldNode, newNode) -> {
+        LookupBox nextDoThenLookupBox = new LookupBox(nextDoThen, "next_do_then", (oldNode, newNode) -> {
             objectContainer.getChildren().remove(oldNode);
-            objectContainer.getChildren().add(newNode);
+            objectContainer.getChildren().add(1, newNode);
         });
+        LookupBox.typeHelper(nextDoThenLookupBox, new SetType(Set.of(DoThen.class)));
+
+        objectContainer.getChildren().add(nextDoThenLookupBox.getTextField());
 
         return objectContainer;
     }

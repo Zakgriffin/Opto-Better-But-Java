@@ -1,7 +1,11 @@
 package com.zakgriffin.opto;
 
+import com.zakgriffin.opto.objects.DoThen;
+import com.zakgriffin.opto.types.SetType;
 import javafx.scene.Node;
 import javafx.scene.layout.*;
+
+import java.util.Set;
 
 public class NormalView {
     public static Node defaultNormalView(DefaultViewO object, LookupBox owningLookupBox) {
@@ -20,6 +24,7 @@ public class NormalView {
                 objectContainer.getChildren().remove(oldNode);
                 objectContainer.getChildren().add(finalI + 1, newNode);
             });
+            LookupBox.typeHelper(lookupBox, namedObservableO.type);
             objectContainer.getChildren().add(lookupBox.getTextField());
         }
 

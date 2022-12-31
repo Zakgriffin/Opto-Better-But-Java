@@ -7,37 +7,37 @@ import javafx.beans.value.ObservableObjectValue;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObservableO implements ObservableObjectValue<O> {
-    O o;
+public class Observable<T> implements ObservableObjectValue<T> {
+    T value;
 
-    List<ChangeListener<? super O>> changeListeners = new ArrayList<>();
+    List<ChangeListener<? super T>> changeListeners = new ArrayList<>();
     List<InvalidationListener> invalidationListeners = new ArrayList<>();
 
     @Override
-    public O get() {
-        return o;
+    public T get() {
+        return value;
     }
 
-    public void set(O newO) {
-        for(ChangeListener<? super O> changeListener : changeListeners) {
-            changeListener.changed(this, this.o, newO);
+    public void set(T newValue) {
+        for(ChangeListener<? super T> changeListener : changeListeners) {
+            changeListener.changed(this, value, newValue);
         }
-        this.o = newO;
+        this.value = newValue;
     }
 
     @Override
-    public void addListener(ChangeListener<? super O> changeListener) {
+    public void addListener(ChangeListener<? super T> changeListener) {
         changeListeners.add(changeListener);
     }
 
     @Override
-    public void removeListener(ChangeListener<? super O> changeListener) {
+    public void removeListener(ChangeListener<? super T> changeListener) {
         changeListeners.remove(changeListener);
     }
 
     @Override
-    public O getValue() {
-        return o;
+    public T getValue() {
+        return value;
     }
 
     @Override

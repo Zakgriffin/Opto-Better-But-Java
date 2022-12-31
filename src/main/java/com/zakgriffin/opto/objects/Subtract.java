@@ -1,12 +1,14 @@
 package com.zakgriffin.opto.objects;
 
 import com.zakgriffin.opto.*;
-import javafx.beans.property.Property;
+import com.zakgriffin.opto.types.SetType;
 import javafx.scene.Node;
 
+import java.util.Set;
+
 public class Subtract implements O, DefaultViewO {
-    ObservableO minuendRegister = new ObservableO();
-    ObservableO subtrahendRegister = new ObservableO();
+    Observable<O> minuendRegister = new Observable<>();
+    Observable<O> subtrahendRegister = new Observable<>();
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
@@ -16,8 +18,8 @@ public class Subtract implements O, DefaultViewO {
     @Override
     public NamedObservableO[] namedObservableOs() {
         return new NamedObservableO[] {
-                new NamedObservableO(minuendRegister, "minuend_register"),
-                new NamedObservableO(subtrahendRegister, "subtrahend_register")
+                new NamedObservableO(minuendRegister, "minuend_register", new SetType(Set.of(Register.class))),
+                new NamedObservableO(subtrahendRegister, "subtrahend_register", new SetType(Set.of(Register.class)))
         };
     }
 }

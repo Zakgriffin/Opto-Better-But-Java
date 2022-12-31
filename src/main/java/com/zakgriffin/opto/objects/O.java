@@ -1,5 +1,6 @@
-package com.zakgriffin.opto;
+package com.zakgriffin.opto.objects;
 
+import com.zakgriffin.opto.LookupBox;
 import javafx.scene.Node;
 
 public interface O {

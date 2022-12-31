@@ -1,12 +1,17 @@
 package com.zakgriffin.opto;
 
 
-public class NamedObservableO {
-    ObservableO obsO;
-    public String name;
+import com.zakgriffin.opto.objects.O;
+import com.zakgriffin.opto.types.TypeO;
 
-    public NamedObservableO(ObservableO obsO, String name) {
+public class NamedObservableO {
+    Observable<O> obsO;
+    public String name;
+    TypeO type;
+
+    public NamedObservableO(Observable<O> obsO, String name, TypeO type) {
         this.obsO = obsO;
         this.name = name;
+        this.type = type;
     }
 }

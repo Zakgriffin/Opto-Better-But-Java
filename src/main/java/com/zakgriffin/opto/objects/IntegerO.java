@@ -1,11 +1,10 @@
 package com.zakgriffin.opto.objects;
 
 import com.zakgriffin.opto.*;
-import javafx.beans.property.Property;
 import javafx.scene.Node;
 
 public class IntegerO implements O, DefaultViewO {
-    ObservableO integer = new ObservableO();
+    Observable<O> integer = new Observable<>();
 
     public IntegerO(int i) {
 
