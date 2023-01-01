@@ -5,17 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b7c7b31-f5d2-499b-8510-415bf2263370" name="Changes" comment="refactor to work with ObservableO">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/types/AnyType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/types/SetType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/types/TypeO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Add.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Divide.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Multiply.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Subtract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/types/MathExpressionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/view/InfixViewO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/LookupBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/LookupBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/DefaultViewO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/view/DefaultViewO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/NamedObservableO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/NamedObservableO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/O.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/O.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/ObservableO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/Observable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/Opto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/Opto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/NormalView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/view/Views.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/ObjectDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/ObjectDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Add.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/DoThen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/DoThen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/IntegerO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/IntegerO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Subtract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Subtract.java" afterDir="false" />
@@ -29,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>

@@ -9,4 +9,6 @@ module com.zakgriffin.opto {
     opens com.zakgriffin.opto.types to javafx.fxml;
     exports com.zakgriffin.opto.objects;
     opens com.zakgriffin.opto.objects to javafx.fxml;
+    exports com.zakgriffin.opto.view;
+    opens com.zakgriffin.opto.view to javafx.fxml;
 }

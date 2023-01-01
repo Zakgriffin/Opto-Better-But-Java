@@ -7,10 +7,14 @@ import java.util.function.Supplier;
 
 public class ObjectDetails {
     public static ObjectDetails[] objectDetails = {
-            new ObjectDetails(Add::new, "add"),
-            new ObjectDetails(Subtract::new, "subtract"),
+            new ObjectDetails(com.zakgriffin.opto.objects.Add::new, "add"),
+            new ObjectDetails(com.zakgriffin.opto.objects.Subtract::new, "subtract"),
             new ObjectDetails(Register::new, "register"),
             new ObjectDetails(DoThen::new, "do_then"),
+            new ObjectDetails(com.zakgriffin.opto.objects.math.Add::new, "+"),
+            new ObjectDetails(com.zakgriffin.opto.objects.math.Subtract::new, "-"),
+            new ObjectDetails(com.zakgriffin.opto.objects.math.Multiply::new, "*"),
+            new ObjectDetails(com.zakgriffin.opto.objects.math.Divide::new, "/"),
     };
 
     Supplier<O> supplier;
