@@ -2,10 +2,12 @@ package com.zakgriffin.opto.objects.math;
 
 import com.zakgriffin.opto.*;
 import com.zakgriffin.opto.objects.O;
-import com.zakgriffin.opto.types.MathExpressionType;
+import com.zakgriffin.opto.types.*;
 import com.zakgriffin.opto.view.InfixViewO;
 import com.zakgriffin.opto.view.Views;
 import javafx.scene.Node;
+
+import java.util.Set;
 
 public class Divide implements O, InfixViewO {
     Observable<O> dividend = new Observable<>();
@@ -23,6 +25,9 @@ public class Divide implements O, InfixViewO {
 
     @Override
     public NamedObservableO right() {
-        return new NamedObservableO(divisor, "divisor", new MathExpressionType());
+        return new NamedObservableO(divisor, "divisor", new DifferenceType(
+                new MathExpressionType(),
+                new IntegerSet(Set.of(0))
+        ));
     }
 }

@@ -7,7 +7,7 @@ import com.zakgriffin.opto.view.InfixViewO;
 import com.zakgriffin.opto.view.Views;
 import javafx.scene.Node;
 
-public class Add implements O, InfixViewO {
+public class Add implements O, InfixViewO, MathExpression {
     Observable<O> addend = new Observable<>();
     Observable<O> augend = new Observable<>();
 
@@ -24,5 +24,11 @@ public class Add implements O, InfixViewO {
     @Override
     public NamedObservableO right() {
         return new NamedObservableO(augend, "augend", new MathExpressionType());
+    }
+
+
+    @Override
+    public int evalutate() {
+        return -1; //addend.get() + augend.get();
     }
 }

@@ -6,10 +6,10 @@ import com.zakgriffin.opto.view.Views;
 import javafx.scene.Node;
 
 public class IntegerO implements O, DefaultViewO {
-    Observable<O> integer = new Observable<>();
+    public int integer;
 
-    public IntegerO(int i) {
-
+    public IntegerO(int integer) {
+        this.integer = integer;
     }
 
     @Override

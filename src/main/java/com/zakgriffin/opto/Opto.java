@@ -19,8 +19,6 @@ public class Opto extends Application {
     public static Font ROBOTO_MONO = Font.loadFont(Opto.class.getResourceAsStream("/RobotoMono-Regular.ttf"), 12);
 
     public static Color backgroundColor = Color.rgb(0x11, 0x11, 0x11);
-
-    public static Border INPUT_BOX_BORDER = new Border(new BorderStroke(Color.WHITE, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT));
     public static Background INPUT_BOX_BACKGROUND = new Background(new BackgroundFill(Color.rgb(0x22, 0x22, 0x22), CornerRadii.EMPTY, Insets.EMPTY));
 
     public static void whiteText(Node node) {
@@ -74,12 +72,18 @@ public class Opto extends Application {
             });
             LookupBox.typeHelper(lookupBox, new AnyType());
 
-            Node textField = lookupBox.getTextField();
+            TextField textField = lookupBox.getTextField();
             hbox.getChildren().add(textField);
 
-            lookupBox.getTextField().requestFocus();
+            textField.requestFocus();
             hbox.setTranslateX(clickEvent.getX());
             hbox.setTranslateY(clickEvent.getY());
+
+            textField.focusedProperty().addListener((obs, oldSelected, newSelected) -> {
+                if(!newSelected && textField.getText().equals("")) {
+                    root.getChildren().remove(hbox);
+                }
+            });
         });
 
         stage.setTitle("Opto");

@@ -1,15 +1,12 @@
 package com.zakgriffin.opto;
 
-import com.zakgriffin.opto.objects.DoThen;
 import com.zakgriffin.opto.objects.IntegerO;
 import com.zakgriffin.opto.objects.O;
-import com.zakgriffin.opto.types.SetType;
 import com.zakgriffin.opto.types.TypeO;
 import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 
-import java.util.Set;
 import java.util.function.BiConsumer;
 
 

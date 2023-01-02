@@ -1,5 +1,6 @@
 package com.zakgriffin.opto.types;
 
+import com.zakgriffin.opto.objects.IntegerO;
 import com.zakgriffin.opto.objects.O;
 import com.zakgriffin.opto.objects.math.*;
 
@@ -10,7 +11,8 @@ public class MathExpressionType implements TypeO {
             Add.class,
             Subtract.class,
             Multiply.class,
-            Divide.class
+            Divide.class,
+            IntegerO.class
     ));
 
     @Override

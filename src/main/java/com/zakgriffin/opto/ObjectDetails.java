@@ -15,6 +15,7 @@ public class ObjectDetails {
             new ObjectDetails(com.zakgriffin.opto.objects.math.Subtract::new, "-"),
             new ObjectDetails(com.zakgriffin.opto.objects.math.Multiply::new, "*"),
             new ObjectDetails(com.zakgriffin.opto.objects.math.Divide::new, "/"),
+            new ObjectDetails(Simplify::new, "simplify"),
     };
 
     Supplier<O> supplier;

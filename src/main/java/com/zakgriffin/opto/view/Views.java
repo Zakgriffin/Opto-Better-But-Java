@@ -12,7 +12,15 @@ import javafx.scene.shape.ArcType;
 public class Views {
     public static Node defaultNormalView(DefaultViewO object, LookupBox owningLookupBox) {
         HBox objectContainer = new HBox();
+        return bah(objectContainer, object, owningLookupBox);
+    }
 
+    public static Node verticalView(DefaultViewO object, LookupBox owningLookupBox) {
+        VBox objectContainer = new VBox();
+        return bah(objectContainer, object, owningLookupBox);
+    }
+
+    private static Node bah(Pane objectContainer, DefaultViewO object, LookupBox owningLookupBox) {
         Node textField = owningLookupBox.getTextField();
         objectContainer.getChildren().add(textField);
 
@@ -30,6 +38,8 @@ public class Views {
 
         TextField textField = owningLookupBox.getTextField();
 
+        Color fillColor = Color.rgb(0x33,0x33,0x33);
+
         Arc leftCap = new Arc();
         leftCap.setRadiusX(3);
         leftCap.setRadiusY(12);
@@ -37,7 +47,7 @@ public class Views {
         leftCap.setLength(180);
         leftCap.setType(ArcType.OPEN);
         leftCap.setStroke(Color.WHITE);
-        leftCap.setFill(Color.TRANSPARENT);
+        leftCap.setFill(fillColor);
 
         Arc rightCap = new Arc();
         rightCap.setRadiusX(3);
@@ -46,7 +56,7 @@ public class Views {
         rightCap.setLength(180);
         rightCap.setType(ArcType.OPEN);
         rightCap.setStroke(Color.WHITE);
-        rightCap.setFill(Color.TRANSPARENT);
+        rightCap.setFill(fillColor);
 
         objectContainer.getChildren().add(0, leftCap);
         addChildView(objectContainer, object.left(), 1);
@@ -57,7 +67,7 @@ public class Views {
         return objectContainer;
     }
 
-    private static void addChildView(HBox objectContainer, NamedObservableO namedObservableO, int addIndex) {
+    private static void addChildView(Pane objectContainer, NamedObservableO namedObservableO, int addIndex) {
         LookupBox lookupBox = new LookupBox(namedObservableO.obsO, namedObservableO.name, (oldNode, newNode) -> {
             objectContainer.getChildren().remove(oldNode);
             objectContainer.getChildren().add(addIndex, newNode);
