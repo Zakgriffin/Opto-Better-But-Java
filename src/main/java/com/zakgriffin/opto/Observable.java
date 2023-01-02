@@ -19,10 +19,11 @@ public class Observable<T> implements ObservableObjectValue<T> {
     }
 
     public void set(T newValue) {
-        for(ChangeListener<? super T> changeListener : changeListeners) {
-            changeListener.changed(this, value, newValue);
-        }
+        T oldValue = value;
         this.value = newValue;
+        for(ChangeListener<? super T> changeListener : changeListeners) {
+            changeListener.changed(this, oldValue, newValue);
+        }
     }
 
     @Override
