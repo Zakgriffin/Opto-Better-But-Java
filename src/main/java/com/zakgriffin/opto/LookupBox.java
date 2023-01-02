@@ -42,7 +42,9 @@ public class LookupBox {
         }
         try {
             int i = Integer.parseInt(text);
-            return new IntegerO(i);
+            IntegerO integer =  new IntegerO();
+            integer.value.set(i);
+            return integer;
         } catch (NumberFormatException ignored) {
         }
 

@@ -37,6 +37,11 @@ public class Binding {
             dependencyBinding.dependingOns.add(binding);
             dependencyBinding.propagateLevel();
         }
+
+//        for(var x : obsToBinding.values()) {
+//            System.out.println(x);
+//        }
+
         return binding;
     }
 

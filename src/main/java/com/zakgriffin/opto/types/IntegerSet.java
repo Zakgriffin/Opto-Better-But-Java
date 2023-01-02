@@ -10,10 +10,11 @@ public class IntegerSet implements TypeO {
     public IntegerSet(Set<Integer> integers) {
         this.integers = integers;
     }
+
     @Override
     public boolean isValid(O o) {
         if(o instanceof IntegerO io) {
-            return integers.contains(io.integer);
+            return integers.contains(io.value.get());
         }
         return false;
     }
