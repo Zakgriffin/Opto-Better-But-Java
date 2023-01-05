@@ -1,4 +1,4 @@
-package com.zakgriffin.opto;
+package com.zakgriffin.opto.reactivity;
 
 import java.util.*;
 import java.util.function.Supplier;
@@ -6,14 +6,14 @@ import java.util.function.Supplier;
 public class Binding {
     public static final PriorityQueue<Binding> bindingsToUpdate =
             new PriorityQueue<>(Comparator.comparingInt(obs -> obs.level));
-    private static final Map<Observable<?>, Binding> obsToBinding = new HashMap<>();
+    private static final Map<com.zakgriffin.opto.reactivity.Observable<?>, Binding> obsToBinding = new HashMap<>();
     private static boolean alreadyUpdating = false;
 
     private Runnable update;
     final List<Binding> dependingOns = new ArrayList<>();
     int level = 0;
 
-    private Binding(Observable<?> observable) {
+    private Binding(com.zakgriffin.opto.reactivity.Observable<?> observable) {
         observable.addListener((obs, oldValue, newValue) -> {
             for (var dependingOn : dependingOns) {
                 if (bindingsToUpdate.contains(dependingOn)) continue;
@@ -25,7 +25,7 @@ public class Binding {
     }
 
 
-    public static <T> Binding createBinding(Observable<T> observable, Supplier<T> supplier, List<Observable<?>> dependencies) {
+    public static <T> Binding createBinding(com.zakgriffin.opto.reactivity.Observable<T> observable, Supplier<T> supplier, List<com.zakgriffin.opto.reactivity.Observable<?>> dependencies) {
         Binding binding = obsToBinding.computeIfAbsent(observable, Binding::new);
         binding.update = () -> observable.set(supplier.get());
 
@@ -150,19 +150,4 @@ public class Binding {
 //        return "(" + z + ")";
 //    }
 
-    public static void batchUpdate(Runnable runnable) {
-        alreadyUpdating = true;
-        runnable.run();
-        alreadyUpdating = false;
-        updateAll();
-    }
-
-    public static void updateAll() {
-        alreadyUpdating = true;
-        while (!bindingsToUpdate.isEmpty()) {
-            Binding bindingToUpdate = bindingsToUpdate.remove();
-            if (bindingToUpdate.update != null) bindingToUpdate.update.run();
-        }
-        alreadyUpdating = false;
-    }
 }

@@ -3,6 +3,7 @@ package com.zakgriffin.opto.objects.math;
 import com.zakgriffin.opto.*;
 import com.zakgriffin.opto.objects.IntegerO;
 import com.zakgriffin.opto.objects.O;
+import com.zakgriffin.opto.reactivity.Observable;
 import com.zakgriffin.opto.types.*;
 import com.zakgriffin.opto.view.InfixViewO;
 import com.zakgriffin.opto.view.Views;

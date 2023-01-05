@@ -1,6 +1,7 @@
 package com.zakgriffin.opto;
 
 import com.zakgriffin.opto.objects.O;
+import com.zakgriffin.opto.reactivity.Observable;
 import com.zakgriffin.opto.types.AnyType;
 import javafx.application.Application;
 import javafx.application.Platform;

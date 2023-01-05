@@ -1,9 +1,8 @@
 package com.zakgriffin.opto.objects;
 
 import com.zakgriffin.opto.*;
-import com.zakgriffin.opto.types.AnyType;
+import com.zakgriffin.opto.reactivity.Observable;
 import com.zakgriffin.opto.types.SetType;
-import com.zakgriffin.opto.types.TypeO;
 import javafx.scene.Node;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;

@@ -3,14 +3,15 @@ package com.zakgriffin.opto.objects.math;
 import com.zakgriffin.opto.*;
 import com.zakgriffin.opto.objects.IntegerO;
 import com.zakgriffin.opto.objects.O;
+import com.zakgriffin.opto.reactivity.Observable;
 import com.zakgriffin.opto.types.MathExpressionType;
 import com.zakgriffin.opto.view.InfixViewO;
 import com.zakgriffin.opto.view.Views;
 import javafx.scene.Node;
 
 public class Add implements O, InfixViewO, MathExpression {
-    final Observable<O> addend = new Observable<>();
-    final Observable<O> augend = new Observable<>();
+    O addend;
+    O augend;
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
