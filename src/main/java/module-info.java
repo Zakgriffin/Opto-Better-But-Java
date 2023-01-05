@@ -1,7 +1,6 @@
 module com.zakgriffin.opto {
     requires javafx.controls;
     requires javafx.fxml;
-    requires org.jetbrains.annotations;
 
 
     opens com.zakgriffin.opto to javafx.fxml;

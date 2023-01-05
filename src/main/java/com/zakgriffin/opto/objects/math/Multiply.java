@@ -27,10 +27,10 @@ public class Multiply implements O, InfixViewO, MathExpression {
         return new NamedObservableO(multiplicand, "multiplicand", new MathExpressionType());
     }
 
-    IntegerO evaluatedO = MathExpression.evaluatedHelper(multiplier, multiplicand, (a, b) -> a * b);
+    Observable<IntegerO> evaluatedO = MathExpression.evaluatedHelper(multiplier, multiplicand, (a, b) -> a * b);
 
     @Override
-    public IntegerO evaluated() {
+    public Observable<IntegerO> evaluated() {
         return evaluatedO;
     }
 }

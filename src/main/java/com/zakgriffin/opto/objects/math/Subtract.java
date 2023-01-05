@@ -27,10 +27,10 @@ public class Subtract implements O, InfixViewO, MathExpression {
         return new NamedObservableO(subtrahend, "subtrahend", new MathExpressionType());
     }
 
-    IntegerO evaluatedO = MathExpression.evaluatedHelper(minuend, subtrahend, (a, b) -> a - b);
+    Observable<IntegerO> evaluatedO = MathExpression.evaluatedHelper(minuend, subtrahend, (a, b) -> a - b);
 
     @Override
-    public IntegerO evaluated() {
+    public Observable<IntegerO> evaluated() {
         return evaluatedO;
     }
 }

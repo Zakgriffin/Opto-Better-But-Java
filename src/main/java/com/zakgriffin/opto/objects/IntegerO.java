@@ -6,10 +6,14 @@ import com.zakgriffin.opto.view.DefaultViewO;
 import com.zakgriffin.opto.view.Views;
 import javafx.scene.Node;
 
-import java.util.List;
-
 public class IntegerO implements O, DefaultViewO, MathExpression {
-    public Observable<Integer> value = new Observable<>();
+    public final int i;
+
+    public IntegerO (int value){
+        this.i = value;
+
+        evaluated.set(this);
+    }
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
@@ -21,14 +25,9 @@ public class IntegerO implements O, DefaultViewO, MathExpression {
         return new NamedObservableO[]{};
     }
 
-//    IntegerO evaluated = new IntegerO();
+    Observable<IntegerO> evaluated = new Observable<>();
     @Override
-    public IntegerO evaluated() {
-        return this;
-//        Binding.createBinding(evaluated.value, () -> {
-//            System.out.println("asdasd" + value.get());
-//            return value.get();
-//        }, List.of(value));
-//        return evaluated;
+    public Observable<IntegerO> evaluated() {
+        return evaluated;
     }
 }

@@ -9,8 +9,8 @@ import com.zakgriffin.opto.view.Views;
 import javafx.scene.Node;
 
 public class Add implements O, InfixViewO, MathExpression {
-    Observable<O> addend = new Observable<>();
-    Observable<O> augend = new Observable<>();
+    final Observable<O> addend = new Observable<>();
+    final Observable<O> augend = new Observable<>();
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
@@ -27,9 +27,9 @@ public class Add implements O, InfixViewO, MathExpression {
         return new NamedObservableO(augend, "augend", new MathExpressionType());
     }
 
-    IntegerO evaluatedO = MathExpression.evaluatedHelper(addend, augend, Integer::sum);
+    Observable<IntegerO> evaluatedO = MathExpression.evaluatedHelper(addend, augend, Integer::sum);
     @Override
-    public IntegerO evaluated() {
+    public Observable<IntegerO> evaluated() {
         return evaluatedO;
     }
 }

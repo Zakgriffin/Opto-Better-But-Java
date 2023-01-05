@@ -1,7 +1,5 @@
 package com.zakgriffin.opto;
 
-import org.jetbrains.annotations.Nullable;
-
 import java.util.*;
 import java.util.function.Supplier;
 
@@ -11,8 +9,6 @@ public class Binding {
     private static final Map<Observable<?>, Binding> obsToBinding = new HashMap<>();
     private static boolean alreadyUpdating = false;
 
-
-    @Nullable
     private Runnable update;
     final List<Binding> dependingOns = new ArrayList<>();
     int level = 0;
@@ -27,6 +23,7 @@ public class Binding {
             if (!alreadyUpdating) updateAll();
         });
     }
+
 
     public static <T> Binding createBinding(Observable<T> observable, Supplier<T> supplier, List<Observable<?>> dependencies) {
         Binding binding = obsToBinding.computeIfAbsent(observable, Binding::new);

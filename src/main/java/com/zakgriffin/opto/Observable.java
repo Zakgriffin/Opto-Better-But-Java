@@ -50,4 +50,16 @@ public class Observable<T> implements ObservableObjectValue<T> {
     public void removeListener(InvalidationListener invalidationListener) {
         invalidationListeners.add(invalidationListener);
     }
+
+    public static void main(String[] args) {
+        // signals, point to other signals to update after
+        // when signals update, should update all dependant signals only once
+
+        // observables hold data, can be updated with new object
+        // can have children, can listen to reassignment
+        // can listen to child updates propagated all the way up
+        // bindings
+
+        // for now, no cyclic dependencies, attempting one will cause failure indication "red arrow"
+    }
 }

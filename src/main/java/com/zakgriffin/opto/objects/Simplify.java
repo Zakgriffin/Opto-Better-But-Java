@@ -10,17 +10,32 @@ import com.zakgriffin.opto.view.DefaultViewO;
 import com.zakgriffin.opto.view.Views;
 import javafx.scene.Node;
 
+import java.util.List;
+
 public class Simplify implements O, DefaultViewO {
     Observable<O> expression = new Observable<>();
     Observable<O> result = new Observable<>();
 
     public Simplify() {
-        expression.addListener((a, b, c) -> {
-            if(expression instanceof MathExpression e) {
-                e.evaluated().value.addListener((x, y, value) -> {
-                    System.out.println(value);
-                });
+        Observable<Observable<IntegerO>> expressionEvaluated = new Observable<>();
+        Binding.createBinding(expressionEvaluated, () -> {
+            if (expression.get() instanceof MathExpression e) {
+                System.out.println("ooooo");
+                return e.evaluated();
             }
+            return null;
+        }, List.of(expression));
+
+        expressionEvaluated.addListener((a, d, value) -> {
+            if(value == null) return;
+            if (value.get() != null) {
+                System.out.println("omp_once: " + value.get().i);
+            }
+            value.addListener((k, j, v) -> {
+                if (v != null) {
+                    System.out.println("omp: " + v.i);
+                }
+            });
         });
     }
 

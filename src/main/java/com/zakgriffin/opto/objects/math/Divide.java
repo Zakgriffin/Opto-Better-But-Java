@@ -32,10 +32,10 @@ public class Divide implements O, InfixViewO, MathExpression {
         ));
     }
 
-    IntegerO evaluatedO = MathExpression.evaluatedHelper(dividend, divisor, (a, b) -> a / b);
+    Observable<IntegerO> evaluatedO = MathExpression.evaluatedHelper(dividend, divisor, (a, b) -> a / b);
 
     @Override
-    public IntegerO evaluated() {
+    public Observable<IntegerO> evaluated() {
         return evaluatedO;
     }
 }

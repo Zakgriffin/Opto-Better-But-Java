@@ -14,7 +14,7 @@ public class IntegerSet implements TypeO {
     @Override
     public boolean isValid(O o) {
         if(o instanceof IntegerO io) {
-            return integers.contains(io.value.get());
+            return integers.contains(io.i);
         }
         return false;
     }

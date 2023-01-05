@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/Binding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/Binding.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/LookupBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/LookupBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/Observable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/Observable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/IntegerO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/IntegerO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Simplify.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Simplify.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Add.java" afterDir="false" />
@@ -16,6 +17,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Multiply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Multiply.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Subtract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Subtract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/types/IntegerSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/types/IntegerSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
