@@ -27,7 +27,7 @@ public class Views {
         NamedObservableO[] namedObservableOs = object.namedObservableOs();
 
         for (int i = 0; i < namedObservableOs.length; i++) {
-            addChildView(objectContainer, namedObservableOs[i], i + 1);
+            addChildLookupBox(objectContainer, namedObservableOs[i], i + 1);
         }
 
         return objectContainer;
@@ -59,15 +59,15 @@ public class Views {
         rightCap.setFill(fillColor);
 
         objectContainer.getChildren().add(0, leftCap);
-        addChildView(objectContainer, object.left(), 1);
+        addChildLookupBox(objectContainer, object.left(), 1);
         objectContainer.getChildren().add(2, textField);
-        addChildView(objectContainer, object.right(), 3);
+        addChildLookupBox(objectContainer, object.right(), 3);
         objectContainer.getChildren().add(4, rightCap);
 
         return objectContainer;
     }
 
-    private static void addChildView(Pane objectContainer, NamedObservableO namedObservableO, int addIndex) {
+    private static void addChildLookupBox(Pane objectContainer, NamedObservableO namedObservableO, int addIndex) {
         LookupBox lookupBox = new LookupBox(namedObservableO.obsO, namedObservableO.name, (oldNode, newNode) -> {
             objectContainer.getChildren().remove(oldNode);
             objectContainer.getChildren().add(addIndex, newNode);

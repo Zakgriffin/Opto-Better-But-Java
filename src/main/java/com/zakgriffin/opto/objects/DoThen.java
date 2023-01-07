@@ -1,7 +1,7 @@
 package com.zakgriffin.opto.objects;
 
 import com.zakgriffin.opto.*;
-import com.zakgriffin.opto.reactivity.Observable;
+import com.zakgriffin.opto.reactivity.Tracker;
 import com.zakgriffin.opto.types.SetType;
 import javafx.scene.Node;
 import javafx.scene.layout.HBox;
@@ -10,8 +10,8 @@ import javafx.scene.layout.VBox;
 import java.util.Set;
 
 public class DoThen implements O {
-    Observable<O> effect = new Observable<>();
-    Observable<O> nextDoThen = new Observable<>();
+    Tracker<O> effect = new Tracker<>();
+    Tracker<O> nextDoThen = new Tracker<>();
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {

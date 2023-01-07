@@ -2,7 +2,7 @@ package com.zakgriffin.opto.objects;
 
 import com.zakgriffin.opto.*;
 import com.zakgriffin.opto.objects.math.MathExpression;
-import com.zakgriffin.opto.reactivity.Observable;
+import com.zakgriffin.opto.reactivity.Tracker;
 import com.zakgriffin.opto.views.DefaultViewO;
 import com.zakgriffin.opto.views.Views;
 import javafx.scene.Node;
@@ -13,7 +13,7 @@ public class IntegerO implements O, DefaultViewO, MathExpression {
     public IntegerO (int value){
         this.i = value;
 
-        evaluated.set(this);
+        evaluated.set(i);
     }
 
     @Override
@@ -26,9 +26,9 @@ public class IntegerO implements O, DefaultViewO, MathExpression {
         return new NamedObservableO[]{};
     }
 
-    Observable<IntegerO> evaluated = new Observable<>();
+    Tracker<Integer> evaluated = new Tracker<>();
     @Override
-    public Observable<IntegerO> evaluated() {
+    public Tracker<Integer> evaluate() {
         return evaluated;
     }
 }

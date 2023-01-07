@@ -1,7 +1,7 @@
 package com.zakgriffin.opto;
 
 import com.zakgriffin.opto.objects.O;
-import com.zakgriffin.opto.reactivity.Observable;
+import com.zakgriffin.opto.reactivity.Tracker;
 import com.zakgriffin.opto.types.AnyType;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -62,31 +62,29 @@ public class Opto extends Application {
 
             if (clickEvent.getClickCount() != 2) return;
 
-            EditorView editorView = new EditorView();
+            HBox hbox = new HBox();
+            root.getChildren().add(hbox);
 
-//            HBox hbox = new HBox();
-//            root.getChildren().add(hbox);
-//
-//            Observable<O> rootItem = new Observable<>();
-//
-//            LookupBox lookupBox = new LookupBox(rootItem, "", (oldNode, newNode) -> {
-//                hbox.getChildren().remove(oldNode);
-//                hbox.getChildren().add(newNode);
-//            });
-//            LookupBox.typeHelper(lookupBox, new AnyType());
-//
-//            TextField textField = lookupBox.getTextField();
-//            hbox.getChildren().add(textField);
-//
-//            textField.requestFocus();
-//            hbox.setTranslateX(clickEvent.getX());
-//            hbox.setTranslateY(clickEvent.getY());
-//
-//            textField.focusedProperty().addListener((obs, oldSelected, newSelected) -> {
-//                if(!newSelected && textField.getText().equals("")) {
-//                    root.getChildren().remove(hbox);
-//                }
-//            });
+            Tracker<O> rootItem = new Tracker<>();
+
+            LookupBox lookupBox = new LookupBox(rootItem, "", (oldNode, newNode) -> {
+                hbox.getChildren().remove(oldNode);
+                hbox.getChildren().add(newNode);
+            });
+            LookupBox.typeHelper(lookupBox, new AnyType());
+
+            TextField textField = lookupBox.getTextField();
+            hbox.getChildren().add(textField);
+
+            textField.requestFocus();
+            hbox.setTranslateX(clickEvent.getX());
+            hbox.setTranslateY(clickEvent.getY());
+
+            textField.focusedProperty().addListener((obs, oldSelected, newSelected) -> {
+                if(!newSelected && textField.getText().equals("")) {
+                    root.getChildren().remove(hbox);
+                }
+            });
         });
 
         stage.setTitle("Opto");

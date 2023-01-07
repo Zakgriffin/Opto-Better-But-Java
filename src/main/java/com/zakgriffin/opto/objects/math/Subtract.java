@@ -1,17 +1,16 @@
 package com.zakgriffin.opto.objects.math;
 
 import com.zakgriffin.opto.*;
-import com.zakgriffin.opto.objects.IntegerO;
 import com.zakgriffin.opto.objects.O;
-import com.zakgriffin.opto.reactivity.Observable;
+import com.zakgriffin.opto.reactivity.Tracker;
 import com.zakgriffin.opto.types.MathExpressionType;
 import com.zakgriffin.opto.views.InfixViewO;
 import com.zakgriffin.opto.views.Views;
 import javafx.scene.Node;
 
 public class Subtract implements O, InfixViewO, MathExpression {
-    Observable<O> minuend = new Observable<>();
-    Observable<O> subtrahend = new Observable<>();
+    Tracker<O> minuend = new Tracker<>();
+    Tracker<O> subtrahend = new Tracker<>();
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
@@ -28,10 +27,9 @@ public class Subtract implements O, InfixViewO, MathExpression {
         return new NamedObservableO(subtrahend, "subtrahend", new MathExpressionType());
     }
 
-    Observable<IntegerO> evaluatedO = MathExpression.evaluatedHelper(minuend, subtrahend, (a, b) -> a - b);
-
+    Tracker<Integer> evaluated = MathExpression.evaluatedHelper(minuend, subtrahend, (a, b) -> a - b);
     @Override
-    public Observable<IntegerO> evaluated() {
-        return evaluatedO;
+    public Tracker<Integer> evaluate() {
+        return evaluated;
     }
 }

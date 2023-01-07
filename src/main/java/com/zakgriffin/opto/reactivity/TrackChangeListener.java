@@ -1,5 +1,5 @@
 package com.zakgriffin.opto.reactivity;
 
-public interface ObservableListener<T> {
+public interface TrackChangeListener<T> {
     void onChange(T oldValue, T newValue);
 }

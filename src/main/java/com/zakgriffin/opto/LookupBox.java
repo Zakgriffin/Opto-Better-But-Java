@@ -2,7 +2,7 @@ package com.zakgriffin.opto;
 
 import com.zakgriffin.opto.objects.IntegerO;
 import com.zakgriffin.opto.objects.O;
-import com.zakgriffin.opto.reactivity.Observable;
+import com.zakgriffin.opto.reactivity.Tracker;
 import com.zakgriffin.opto.types.TypeO;
 import javafx.application.Platform;
 import javafx.scene.Node;
@@ -13,9 +13,9 @@ import java.util.function.BiConsumer;
 public class LookupBox {
     TextField textField = new TextField();
     Node workingNode = textField;
-    Observable<O> obsO;
+    Tracker<O> obsO;
 
-    public LookupBox(Observable<O> obsO, String prompt, BiConsumer<Node, Node> replaceNode) {
+    public LookupBox(Tracker<O> obsO, String prompt, BiConsumer<Node, Node> replaceNode) {
         this.obsO = obsO;
         textField.setPromptText(prompt);
 
@@ -53,7 +53,7 @@ public class LookupBox {
         return textField;
     }
 
-    public void setValidType(Observable<TypeO> typeObs) {
+    public void setValidType(Tracker<TypeO> typeObs) {
         BiConsumer<O, TypeO> p = (o, type) -> Platform.runLater(() -> {
             String x;
             if (obsO.get() == null) x = "#EED202";
@@ -85,7 +85,7 @@ public class LookupBox {
 //    }
 
     public static void typeHelper(LookupBox lookupBox, TypeO type) {
-        Observable<TypeO> nextDoThenType = new Observable<>();
+        Tracker<TypeO> nextDoThenType = new Tracker<>();
         lookupBox.setValidType(nextDoThenType);
         nextDoThenType.set(type);
     }

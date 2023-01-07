@@ -1,9 +1,8 @@
 package com.zakgriffin.opto.objects.math;
 
 import com.zakgriffin.opto.*;
-import com.zakgriffin.opto.objects.IntegerO;
 import com.zakgriffin.opto.objects.O;
-import com.zakgriffin.opto.reactivity.Observable;
+import com.zakgriffin.opto.reactivity.Tracker;
 import com.zakgriffin.opto.types.*;
 import com.zakgriffin.opto.views.InfixViewO;
 import com.zakgriffin.opto.views.Views;
@@ -12,8 +11,8 @@ import javafx.scene.Node;
 import java.util.Set;
 
 public class Divide implements O, InfixViewO, MathExpression {
-    Observable<O> dividend = new Observable<>();
-    Observable<O> divisor = new Observable<>();
+    Tracker<O> dividend = new Tracker<>();
+    Tracker<O> divisor = new Tracker<>();
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
@@ -33,10 +32,9 @@ public class Divide implements O, InfixViewO, MathExpression {
         ));
     }
 
-    Observable<IntegerO> evaluatedO = MathExpression.evaluatedHelper(dividend, divisor, (a, b) -> a / b);
-
+    Tracker<Integer> evaluated = MathExpression.evaluatedHelper(dividend, divisor, (a, b) -> a / b);
     @Override
-    public Observable<IntegerO> evaluated() {
-        return evaluatedO;
+    public Tracker<Integer> evaluate() {
+        return evaluated;
     }
 }
