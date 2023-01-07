@@ -3,12 +3,12 @@ package com.zakgriffin.opto.reactivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Action {
+public class Signal {
     final Runnable runnable;
-    final List<Action> nextActions = new ArrayList<>();
+    final List<Signal> nextSignals = new ArrayList<>();
     int level;
 
-    public Action(Runnable runnable) {
+    public Signal(Runnable runnable) {
         this.runnable = runnable;
     }
 }

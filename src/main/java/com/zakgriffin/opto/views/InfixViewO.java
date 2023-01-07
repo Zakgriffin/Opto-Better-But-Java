@@ -1,4 +1,4 @@
-package com.zakgriffin.opto.view;
+package com.zakgriffin.opto.views;
 
 import com.zakgriffin.opto.NamedObservableO;
 

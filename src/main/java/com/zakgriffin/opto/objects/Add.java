@@ -3,8 +3,8 @@ package com.zakgriffin.opto.objects;
 import com.zakgriffin.opto.*;
 import com.zakgriffin.opto.reactivity.Observable;
 import com.zakgriffin.opto.types.SetType;
-import com.zakgriffin.opto.view.DefaultViewO;
-import com.zakgriffin.opto.view.Views;
+import com.zakgriffin.opto.views.DefaultViewO;
+import com.zakgriffin.opto.views.Views;
 import javafx.scene.Node;
 
 import java.util.Set;

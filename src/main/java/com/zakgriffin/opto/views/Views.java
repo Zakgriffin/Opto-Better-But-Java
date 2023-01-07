@@ -1,4 +1,4 @@
-package com.zakgriffin.opto.view;
+package com.zakgriffin.opto.views;
 
 import com.zakgriffin.opto.LookupBox;
 import com.zakgriffin.opto.NamedObservableO;
@@ -12,16 +12,16 @@ import javafx.scene.shape.ArcType;
 public class Views {
     public static Node defaultNormalView(DefaultViewO object, LookupBox owningLookupBox) {
         HBox objectContainer = new HBox();
-        return bah(objectContainer, object, owningLookupBox);
+        return linearView(objectContainer, object, owningLookupBox);
     }
 
     public static Node verticalView(DefaultViewO object, LookupBox owningLookupBox) {
         VBox objectContainer = new VBox();
-        return bah(objectContainer, object, owningLookupBox);
+        return linearView(objectContainer, object, owningLookupBox);
     }
 
-    private static Node bah(Pane objectContainer, DefaultViewO object, LookupBox owningLookupBox) {
-        Node textField = owningLookupBox.getTextField();
+    private static Node linearView(Pane objectContainer, DefaultViewO object, LookupBox owningLookupBox) {
+        TextField textField = owningLookupBox.getTextField();
         objectContainer.getChildren().add(textField);
 
         NamedObservableO[] namedObservableOs = object.namedObservableOs();

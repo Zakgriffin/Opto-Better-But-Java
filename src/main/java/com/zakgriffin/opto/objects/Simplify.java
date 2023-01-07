@@ -1,24 +1,37 @@
 package com.zakgriffin.opto.objects;
 
-import com.zakgriffin.opto.reactivity.Binding;
 import com.zakgriffin.opto.LookupBox;
 import com.zakgriffin.opto.NamedObservableO;
-import com.zakgriffin.opto.reactivity.Observable;
-import com.zakgriffin.opto.objects.math.MathExpression;
 import com.zakgriffin.opto.types.MathExpressionType;
-import com.zakgriffin.opto.view.DefaultViewO;
-import com.zakgriffin.opto.view.Views;
+import com.zakgriffin.opto.views.DefaultViewO;
+import com.zakgriffin.opto.views.Views;
 import javafx.scene.Node;
 
-import java.util.List;
 
 public class Simplify implements O, DefaultViewO {
     O expression;
     O result;
 
-    public Simplify() {
-
-    }
+//    Circle bonk(HBox treeContainer, O expr) {
+//        expressionCircle = new Circle(expr);
+//        treeContainer.addChild(expressionCircle);
+//
+//        expression.changeLeft((left) -> {
+//            leftCircle = new Circle(left);
+//            treeContainer.addChild(leftCircle);
+//            leftCircle.x.bind(expressionCircle.x - 30);
+//            leftCircle.y.bind(expressionCircle.y + 20);
+//            bonk(left);
+//        });
+//
+//        expression.changeRight((right) -> {
+//            rightCircle = new Circle(right);
+//            treeContainer.addChild(rightCircle);
+//            rightCircle.x.bind(expressionCircle.x + 30);
+//            rightCircle.y.bind(expressionCircle.y + 20);
+//            bonk(right);
+//        });
+//    }
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
@@ -29,13 +42,7 @@ public class Simplify implements O, DefaultViewO {
     public NamedObservableO[] namedObservableOs() {
         return new NamedObservableO[]{
                 new NamedObservableO(expression, "expression", new MathExpressionType()),
-                new NamedObservableO(result, "result", (o) -> {
-//                    if(o instanceof IntegerO io) {
-//                        return true;
-//                        return io.integer == MathExpression.simplify(expression.get());
-//                    }
-                    return true;
-                })
+                new NamedObservableO(result, "result", (o) -> true)
         };
     }
 }

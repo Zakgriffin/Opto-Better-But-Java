@@ -62,29 +62,31 @@ public class Opto extends Application {
 
             if (clickEvent.getClickCount() != 2) return;
 
-            HBox hbox = new HBox();
-            root.getChildren().add(hbox);
+            EditorView editorView = new EditorView();
 
-            Observable<O> rootItem = new Observable<>();
-
-            LookupBox lookupBox = new LookupBox(rootItem, "", (oldNode, newNode) -> {
-                hbox.getChildren().remove(oldNode);
-                hbox.getChildren().add(newNode);
-            });
-            LookupBox.typeHelper(lookupBox, new AnyType());
-
-            TextField textField = lookupBox.getTextField();
-            hbox.getChildren().add(textField);
-
-            textField.requestFocus();
-            hbox.setTranslateX(clickEvent.getX());
-            hbox.setTranslateY(clickEvent.getY());
-
-            textField.focusedProperty().addListener((obs, oldSelected, newSelected) -> {
-                if(!newSelected && textField.getText().equals("")) {
-                    root.getChildren().remove(hbox);
-                }
-            });
+//            HBox hbox = new HBox();
+//            root.getChildren().add(hbox);
+//
+//            Observable<O> rootItem = new Observable<>();
+//
+//            LookupBox lookupBox = new LookupBox(rootItem, "", (oldNode, newNode) -> {
+//                hbox.getChildren().remove(oldNode);
+//                hbox.getChildren().add(newNode);
+//            });
+//            LookupBox.typeHelper(lookupBox, new AnyType());
+//
+//            TextField textField = lookupBox.getTextField();
+//            hbox.getChildren().add(textField);
+//
+//            textField.requestFocus();
+//            hbox.setTranslateX(clickEvent.getX());
+//            hbox.setTranslateY(clickEvent.getY());
+//
+//            textField.focusedProperty().addListener((obs, oldSelected, newSelected) -> {
+//                if(!newSelected && textField.getText().equals("")) {
+//                    root.getChildren().remove(hbox);
+//                }
+//            });
         });
 
         stage.setTitle("Opto");

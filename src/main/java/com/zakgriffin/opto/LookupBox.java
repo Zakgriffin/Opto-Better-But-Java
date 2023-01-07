@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 
 import java.util.function.BiConsumer;
 
-
 public class LookupBox {
     TextField textField = new TextField();
     Node workingNode = textField;
@@ -29,7 +28,7 @@ public class LookupBox {
             obsO.set(o);
         });
 
-        obsO.addListener((observable, oldO, newO) -> {
+        obsO.addListener((oldO, newO) -> {
             Node newWorkingNode = newO == null ? textField : newO.getNormalView(this);
             replaceNode.accept(workingNode, newWorkingNode);
             workingNode = newWorkingNode;
@@ -57,8 +56,8 @@ public class LookupBox {
     public void setValidType(Observable<TypeO> typeObs) {
         BiConsumer<O, TypeO> p = (o, type) -> Platform.runLater(() -> {
             String x;
-            if (obsO.value == null) x = "#EED202";
-            else if (!typeObs.value.isValid(obsO.value)) x = "red";
+            if (obsO.get() == null) x = "#EED202";
+            else if (!typeObs.get().isValid(obsO.get())) x = "red";
             else x = "transparent";
 
             textField.setStyle(
@@ -67,29 +66,8 @@ public class LookupBox {
                 "-fx-border-width: 0 0 1 0;"
             );
         });
-        obsO.addListener((obs, oldO, newO) -> p.accept(newO, typeObs.get()));
-        typeObs.addListener((obs, oldType, newType) -> p.accept(obsO.get(), newType));
-//        StringBinding totalCost = new StringBinding() {
-//            {
-//                super.bind(obsO, typeObs);
-//            }
-//
-//            @Override
-//            protected String computeValue() {
-//                if (obsO.value == null) return "yellow";
-//                if (!typeObs.value.isValid(obsO.value)) return "red";
-//                return "white";
-//            }
-//
-//            @Override
-//            public ObservableList<?> getDependencies() {
-//                return FXCollections.observableList(Arrays.asList(obsO, typeObs));
-//            }
-//        };
-
-//        totalCost.addListener((observable, oldColor, newColor) -> {
-//            textField.setStyle("-fx-text-fill: " + newColor + ";");
-//        });
+        obsO.addListener((oldO, newO) -> p.accept(newO, typeObs.get()));
+        typeObs.addListener((oldType, newType) -> p.accept(obsO.get(), newType));
     }
 
 //    public void makeDraggable(Node dragHandle) {

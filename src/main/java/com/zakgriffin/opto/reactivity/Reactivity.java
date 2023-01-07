@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class Reactivity {
-    static final PriorityQueue<Action> actionsToRun = new PriorityQueue<>(Comparator.comparingInt(obs -> obs.level));
+    static final PriorityQueue<Signal> signalsToRun = new PriorityQueue<>(Comparator.comparingInt(obs -> obs.level));
     static boolean alreadyUpdating = false;
 
     static void addBinding(Binding binding) {
@@ -19,15 +19,15 @@ public class Reactivity {
         alreadyUpdating = true;
         runnable.run();
         alreadyUpdating = false;
-        updateAll();
+//        updateAll();
     }
 
-    public static void updateAll() {
-        alreadyUpdating = true;
-        while (!bindingsToUpdate.isEmpty()) {
-            Binding bindingToUpdate = bindingsToUpdate.remove();
-            if (bindingToUpdate.update != null) bindingToUpdate.update.run();
-        }
-        alreadyUpdating = false;
-    }
+//    public static void updateAll() {
+//        alreadyUpdating = true;
+//        while (!actionsToRun.isEmpty()) {
+//            Binding bindingToUpdate = actionsToRun.remove();
+//            if (bindingToUpdate.update != null) bindingToUpdate.update.run();
+//        }
+//        alreadyUpdating = false;
+//    }
 }

@@ -4,52 +4,52 @@ import java.util.*;
 import java.util.function.Supplier;
 
 public class Binding {
-    public static final PriorityQueue<Binding> bindingsToUpdate =
-            new PriorityQueue<>(Comparator.comparingInt(obs -> obs.level));
-    private static final Map<com.zakgriffin.opto.reactivity.Observable<?>, Binding> obsToBinding = new HashMap<>();
-    private static boolean alreadyUpdating = false;
-
-    private Runnable update;
-    final List<Binding> dependingOns = new ArrayList<>();
-    int level = 0;
-
-    private Binding(com.zakgriffin.opto.reactivity.Observable<?> observable) {
-        observable.addListener((obs, oldValue, newValue) -> {
-            for (var dependingOn : dependingOns) {
-                if (bindingsToUpdate.contains(dependingOn)) continue;
-
-                bindingsToUpdate.add(dependingOn);
-            }
-            if (!alreadyUpdating) updateAll();
-        });
-    }
-
-
-    public static <T> Binding createBinding(com.zakgriffin.opto.reactivity.Observable<T> observable, Supplier<T> supplier, List<com.zakgriffin.opto.reactivity.Observable<?>> dependencies) {
-        Binding binding = obsToBinding.computeIfAbsent(observable, Binding::new);
-        binding.update = () -> observable.set(supplier.get());
-
-        for (Observable<?> dependency : dependencies) {
-            Binding dependencyBinding = obsToBinding.computeIfAbsent(dependency, Binding::new);
-            dependencyBinding.dependingOns.add(binding);
-            dependencyBinding.propagateLevel();
-        }
-
-//        for(var x : obsToBinding.values()) {
-//            System.out.println(x);
+//    public static final PriorityQueue<Binding> bindingsToUpdate =
+//            new PriorityQueue<>(Comparator.comparingInt(obs -> obs.level));
+//    private static final Map<com.zakgriffin.opto.reactivity.Observable<?>, Binding> obsToBinding = new HashMap<>();
+//    private static boolean alreadyUpdating = false;
+//
+//    private Runnable update;
+//    final List<Binding> dependingOns = new ArrayList<>();
+//    int level = 0;
+//
+//    private Binding(com.zakgriffin.opto.reactivity.Observable<?> observable) {
+//        observable.addListener((obs, oldValue, newValue) -> {
+//            for (var dependingOn : dependingOns) {
+//                if (bindingsToUpdate.contains(dependingOn)) continue;
+//
+//                bindingsToUpdate.add(dependingOn);
+//            }
+//            if (!alreadyUpdating) updateAll();
+//        });
+//    }
+//
+//
+//    public static <T> Binding createBinding(com.zakgriffin.opto.reactivity.Observable<T> observable, Supplier<T> supplier, List<com.zakgriffin.opto.reactivity.Observable<?>> dependencies) {
+//        Binding binding = obsToBinding.computeIfAbsent(observable, Binding::new);
+//        binding.update = () -> observable.set(supplier.get());
+//
+//        for (Observable<?> dependency : dependencies) {
+//            Binding dependencyBinding = obsToBinding.computeIfAbsent(dependency, Binding::new);
+//            dependencyBinding.dependingOns.add(binding);
+//            dependencyBinding.propagateLevel();
 //        }
-
-        return binding;
-    }
-
-    private void propagateLevel() {
-        for (Binding dependingOn : dependingOns) {
-            if (dependingOn.level <= level) {
-                dependingOn.level = level + 1;
-                dependingOn.propagateLevel();
-            }
-        }
-    }
+//
+////        for(var x : obsToBinding.values()) {
+////            System.out.println(x);
+////        }
+//
+//        return binding;
+//    }
+//
+//    private void propagateLevel() {
+//        for (Binding dependingOn : dependingOns) {
+//            if (dependingOn.level <= level) {
+//                dependingOn.level = level + 1;
+//                dependingOn.propagateLevel();
+//            }
+//        }
+//    }
 
 //    static Map<Observable<String>, String> all = new HashMap<>();
 //    public static void main(String[] args) {

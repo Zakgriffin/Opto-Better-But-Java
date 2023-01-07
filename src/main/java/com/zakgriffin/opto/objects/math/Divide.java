@@ -5,8 +5,8 @@ import com.zakgriffin.opto.objects.IntegerO;
 import com.zakgriffin.opto.objects.O;
 import com.zakgriffin.opto.reactivity.Observable;
 import com.zakgriffin.opto.types.*;
-import com.zakgriffin.opto.view.InfixViewO;
-import com.zakgriffin.opto.view.Views;
+import com.zakgriffin.opto.views.InfixViewO;
+import com.zakgriffin.opto.views.Views;
 import javafx.scene.Node;
 
 import java.util.Set;
