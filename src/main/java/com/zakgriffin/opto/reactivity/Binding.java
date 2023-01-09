@@ -6,14 +6,14 @@ import java.util.function.Supplier;
 public class Binding {
     public static final PriorityQueue<Binding> bindingsToUpdate =
             new PriorityQueue<>(Comparator.comparingInt(obs -> obs.level));
-    private static final Map<com.zakgriffin.opto.reactivity.Tracker<?>, Binding> obsToBinding = new HashMap<>();
+    private static final Map<Observable<?>, Binding> obsToBinding = new HashMap<>();
     private static boolean alreadyUpdating = false;
 
     private Runnable update;
     final List<Binding> dependingOns = new ArrayList<>();
     int level = 0;
 
-    private Binding(com.zakgriffin.opto.reactivity.Tracker<?> observable) {
+    private Binding(Observable<?> observable) {
         observable.addListener((oldValue, newValue) -> {
             for (var dependingOn : dependingOns) {
                 if (bindingsToUpdate.contains(dependingOn)) continue;
@@ -25,11 +25,11 @@ public class Binding {
     }
 
 
-    public static <T> Binding createBinding(com.zakgriffin.opto.reactivity.Tracker<T> observable, Supplier<T> supplier, List<com.zakgriffin.opto.reactivity.Tracker<?>> dependencies) {
+    public static <T> Binding createBinding(Observable<T> observable, Supplier<T> supplier, List<Observable<?>> dependencies) {
         Binding binding = obsToBinding.computeIfAbsent(observable, Binding::new);
         binding.update = () -> observable.set(supplier.get());
 
-        for (Tracker<?> dependency : dependencies) {
+        for (Observable<?> dependency : dependencies) {
             Binding dependencyBinding = obsToBinding.computeIfAbsent(dependency, Binding::new);
             dependencyBinding.dependingOns.add(binding);
             dependencyBinding.propagateLevel();

@@ -3,30 +3,33 @@ package com.zakgriffin.opto.reactivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tracker<T> {
-    Signal signal;
+public class Observable<T> {
     T value;
+
+    List<ChangeListener<T>> changeListeners = new ArrayList<>();
 
     public T get() {
         return value;
     }
 
     public void set(T newValue) {
-        signal.update();
+        T oldValue = value;
+        this.value = newValue;
+        for(ChangeListener<T> changeListener : changeListeners) {
+            changeListener.onChange(oldValue, newValue);
+        }
     }
 
-    public void addListener(TrackChangeListener<T> changeListener) {
-        changeListeners.add(new Signal(() -> {
-            T oldValue = value;
-            this.value = newValue;
-            for(TrackChangeListener<T> changeListener : changeListeners) {
-                changeListener.onChange(oldValue, newValue);
-            }
-            changeListener.onChange();
-        }));
+    public void addListener(ChangeListener<T> changeListener) {
+        changeListeners.add(changeListener);
     }
 
-    public void removeListener(TrackChangeListener<T> changeListener) {
+    public void addListenerAndRunNow(ChangeListener<T> changeListener) {
+        changeListeners.add(changeListener);
+        changeListener.onChange(null, value);
+    }
+
+    public void removeListener(ChangeListener<T> changeListener) {
         changeListeners.remove(changeListener);
     }
 

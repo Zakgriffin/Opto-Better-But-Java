@@ -1,7 +1,7 @@
 package com.zakgriffin.opto.objects;
 
 import com.zakgriffin.opto.*;
-import com.zakgriffin.opto.reactivity.Tracker;
+import com.zakgriffin.opto.reactivity.Observable;
 import com.zakgriffin.opto.types.SetType;
 import com.zakgriffin.opto.views.DefaultViewO;
 import com.zakgriffin.opto.views.Views;
@@ -10,8 +10,8 @@ import javafx.scene.Node;
 import java.util.Set;
 
 public class Add implements O, DefaultViewO {
-    Tracker<O> addendRegister = new Tracker<>();
-    Tracker<O> augendRegister = new Tracker<>();
+    Observable<O> addendRegister = new Observable<>();
+    Observable<O> augendRegister = new Observable<>();
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {

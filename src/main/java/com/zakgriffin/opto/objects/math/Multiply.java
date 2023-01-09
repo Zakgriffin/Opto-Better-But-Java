@@ -2,15 +2,17 @@ package com.zakgriffin.opto.objects.math;
 
 import com.zakgriffin.opto.*;
 import com.zakgriffin.opto.objects.O;
-import com.zakgriffin.opto.reactivity.Tracker;
+import com.zakgriffin.opto.reactivity.Observable;
+import com.zakgriffin.opto.reactivity.Signal;
+import com.zakgriffin.opto.reactivity.reversible.ReversibleContext;
 import com.zakgriffin.opto.types.MathExpressionType;
 import com.zakgriffin.opto.views.InfixViewO;
 import com.zakgriffin.opto.views.Views;
 import javafx.scene.Node;
 
 public class Multiply implements O, InfixViewO, MathExpression {
-    Tracker<O> multiplier = new Tracker<>();
-    Tracker<O> multiplicand = new Tracker<>();
+    Observable<O> multiplier = new Observable<>();
+    Observable<O> multiplicand = new Observable<>();
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
@@ -27,9 +29,8 @@ public class Multiply implements O, InfixViewO, MathExpression {
         return new NamedObservableO(multiplicand, "multiplicand", new MathExpressionType());
     }
 
-    Tracker<Integer> evaluated = MathExpression.evaluatedHelper(multiplier, multiplicand, (a, b) -> a * b);
     @Override
-    public Tracker<Integer> evaluate() {
-        return evaluated;
+    public Observable<Integer> giveEvaluated(Signal parentSignal, ReversibleContext oRev) {
+        return MathExpression.giveEvaluatedHelper(this, parentSignal, oRev, multiplier, multiplicand, (a, b) -> a * b);
     }
 }

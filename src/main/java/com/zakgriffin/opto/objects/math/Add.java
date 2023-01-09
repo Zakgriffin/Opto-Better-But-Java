@@ -2,23 +2,17 @@ package com.zakgriffin.opto.objects.math;
 
 import com.zakgriffin.opto.*;
 import com.zakgriffin.opto.objects.O;
-import com.zakgriffin.opto.reactivity.Tracker;
+import com.zakgriffin.opto.reactivity.Observable;
+import com.zakgriffin.opto.reactivity.Signal;
+import com.zakgriffin.opto.reactivity.reversible.ReversibleContext;
 import com.zakgriffin.opto.types.MathExpressionType;
 import com.zakgriffin.opto.views.InfixViewO;
 import com.zakgriffin.opto.views.Views;
 import javafx.scene.Node;
 
 public class Add implements O, InfixViewO, MathExpression {
-    Tracker<O> addend = new Tracker<>();
-    Tracker<O> augend = new Tracker<>();
-
-    Binding<Integer> evaluated = new Tracker<>();
-
-    public Add() {
-        addend.addListener(bongo((valye) -> {
-            connect(addend.signal, n.evaluated.signal);
-        }));
-    }
+    Observable<O> addend = new Observable<>();
+    Observable<O> augend = new Observable<>();
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
@@ -35,11 +29,8 @@ public class Add implements O, InfixViewO, MathExpression {
         return new NamedObservableO(augend, "augend", new MathExpressionType());
     }
 
-    Tracker<Integer> evaluated = MathExpression.evaluatedHelper(addend, augend, Integer::sum);
-
-
     @Override
-    public Tracker<Integer> evaluate() {
-        return addend.get() + augend.get();
+    public Observable<Integer> giveEvaluated(Signal parentSignal, ReversibleContext oRev) {
+        return MathExpression.giveEvaluatedHelper(this, parentSignal, oRev, addend, augend, Integer::sum);
     }
 }

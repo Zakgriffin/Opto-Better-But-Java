@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b7c7b31-f5d2-499b-8510-415bf2263370" name="Changes" comment="now im just making a mess">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/MathExpressionEvaluated.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/reversible/DoReversibleContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/reversible/ReversibleContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/reversible/ReversibleListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/reversible/UndoReversibleContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/LookupBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/LookupBox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/NamedObservableO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/NamedObservableO.java" afterDir="false" />
@@ -21,10 +26,10 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Multiply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Multiply.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Subtract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Subtract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Binding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Binding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Observable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Tracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/ObservableListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/TrackChangeListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/views/EditorView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/views/Views.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/views/Views.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Signal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Signal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/TrackChangeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/ChangeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Tracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Observable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +86,7 @@
       <module name="Opto" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zakgriffin.opto.reactivity.*" />
+          <option name="PATTERN" value="com.zakgriffin.opto.reactivity.reversible.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

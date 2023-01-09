@@ -1,7 +1,7 @@
 package com.zakgriffin.opto;
 
 import com.zakgriffin.opto.objects.O;
-import com.zakgriffin.opto.reactivity.Tracker;
+import com.zakgriffin.opto.reactivity.Observable;
 import com.zakgriffin.opto.types.AnyType;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -65,7 +65,7 @@ public class Opto extends Application {
             HBox hbox = new HBox();
             root.getChildren().add(hbox);
 
-            Tracker<O> rootItem = new Tracker<>();
+            Observable<O> rootItem = new Observable<>();
 
             LookupBox lookupBox = new LookupBox(rootItem, "", (oldNode, newNode) -> {
                 hbox.getChildren().remove(oldNode);

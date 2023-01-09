@@ -3,27 +3,31 @@ package com.zakgriffin.opto.objects;
 import com.zakgriffin.opto.LookupBox;
 import com.zakgriffin.opto.NamedObservableO;
 import com.zakgriffin.opto.objects.math.MathExpression;
-import com.zakgriffin.opto.reactivity.Tracker;
+import com.zakgriffin.opto.reactivity.Observable;
+import com.zakgriffin.opto.reactivity.Signal;
 import com.zakgriffin.opto.types.MathExpressionType;
 import com.zakgriffin.opto.views.DefaultViewO;
 import com.zakgriffin.opto.views.Views;
 import javafx.scene.Node;
 
+import static com.zakgriffin.opto.objects.math.MathExpressionEvaluated.expressionToEvaluated;
+import static com.zakgriffin.opto.reactivity.reversible.ReversibleListener.reversible;
+
 
 public class Simplify implements O, DefaultViewO {
-    Tracker<O> expression = new Tracker<>();
-    Tracker<O> result = new Tracker<>();
+    Observable<O> expression = new Observable<>();
+    Observable<O> result = new Observable<>();
 
     public Simplify() {
-        expression.addListener((a, value) -> {
-            if (value instanceof MathExpression e) {
-                e.evaluate().addListener((b, newEvaluated) -> {
-                    System.out.println("ope: " + newEvaluated);
+        expression.addListenerAndRunNow(reversible((expr, rev) -> {
+            if (expr instanceof MathExpression exprMath) {
+                Signal poo = new Signal(() -> {
+                    System.out.println("ooo: " + expressionToEvaluated.get(exprMath).get());
                 });
+                exprMath.giveEvaluated(poo, rev);
             }
-        });
+        }));
     }
-
 
 //    Circle bonk(HBox treeContainer, O expr) {
 //        expressionCircle = new Circle(expr);

@@ -13,4 +13,6 @@ module com.zakgriffin.opto {
     opens com.zakgriffin.opto.views to javafx.fxml;
     exports com.zakgriffin.opto.reactivity;
     opens com.zakgriffin.opto.reactivity to javafx.fxml;
+    exports com.zakgriffin.opto.reactivity.reversible;
+    opens com.zakgriffin.opto.reactivity.reversible to javafx.fxml;
 }
