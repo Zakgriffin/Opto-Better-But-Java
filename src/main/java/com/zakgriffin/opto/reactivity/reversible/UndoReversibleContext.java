@@ -8,7 +8,7 @@ public class UndoReversibleContext implements ReversibleContext {
     static UndoReversibleContext INSTANCE = new UndoReversibleContext();
     @Override
     public <T> void useListenerAndRunNow(Observable<T> observable, ChangeListener<T> changeListener) {
-        observable.removeListener(changeListener);
+        observable.removeListenerAndRunNow(changeListener);
     }
 
     @Override

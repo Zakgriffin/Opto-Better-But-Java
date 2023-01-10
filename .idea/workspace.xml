@@ -4,31 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b7c7b31-f5d2-499b-8510-415bf2263370" name="Changes" comment="now im just making a mess">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/MathExpressionEvaluated.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/reversible/DoReversibleContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/reversible/ReversibleContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/reversible/ReversibleListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/reversible/UndoReversibleContext.java" afterDir="false" />
+    <list default="true" id="1b7c7b31-f5d2-499b-8510-415bf2263370" name="Changes" comment="this might be the right track">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/NotANumber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/LookupBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/LookupBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/NamedObservableO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/NamedObservableO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/Opto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/Opto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Add.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/DoThen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/DoThen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/IntegerO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/IntegerO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Simplify.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Simplify.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Subtract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/Subtract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Add.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Divide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Divide.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/MathExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/MathExpression.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Multiply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Multiply.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Subtract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/objects/math/Subtract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Binding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Binding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Observable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Observable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Reactivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Reactivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Signal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Signal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/TrackChangeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/ChangeListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Tracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/Observable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/reversible/UndoReversibleContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zakgriffin/opto/reactivity/reversible/UndoReversibleContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,9 +97,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Signal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zakgriffin.opto.reactivity.Signal" />
+      <module name="Opto" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zakgriffin.opto.reactivity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Opto" />
+        <item itemvalue="Application.Signal" />
         <item itemvalue="Application.Binding" />
       </list>
     </recent_temporary>
@@ -165,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673051829215</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="this might be the right track">
+      <created>1673305005363</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673305005363</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,7 +197,8 @@
     <MESSAGE value="efficient (probably) observable binding algorithm" />
     <MESSAGE value="still very broken but now on my laptop" />
     <MESSAGE value="now im just making a mess" />
-    <option name="LAST_COMMIT_MESSAGE" value="now im just making a mess" />
+    <MESSAGE value="this might be the right track" />
+    <option name="LAST_COMMIT_MESSAGE" value="this might be the right track" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

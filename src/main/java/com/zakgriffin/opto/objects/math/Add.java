@@ -30,7 +30,12 @@ public class Add implements O, InfixViewO, MathExpression {
     }
 
     @Override
-    public Observable<Integer> giveEvaluated(Signal parentSignal, ReversibleContext oRev) {
-        return MathExpression.giveEvaluatedHelper(this, parentSignal, oRev, addend, augend, Integer::sum);
+    public Signal setupEvaluated(ReversibleContext oRev) {
+        return MathExpression.setupEvaluatedHelper(this, oRev, addend, augend, Integer::sum);
+    }
+
+    @Override
+    public String toString() {
+        return "(" + (addend.get() == null ? null : addend.get()) + " + " + (augend.get() == null ? null : augend.get()) + ")";
     }
 }

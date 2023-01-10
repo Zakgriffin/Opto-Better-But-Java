@@ -3,6 +3,7 @@ package com.zakgriffin.opto.objects;
 import com.zakgriffin.opto.LookupBox;
 import com.zakgriffin.opto.NamedObservableO;
 import com.zakgriffin.opto.objects.math.MathExpression;
+import com.zakgriffin.opto.objects.math.NotANumber;
 import com.zakgriffin.opto.reactivity.Observable;
 import com.zakgriffin.opto.reactivity.Signal;
 import com.zakgriffin.opto.types.MathExpressionType;
@@ -21,10 +22,17 @@ public class Simplify implements O, DefaultViewO {
     public Simplify() {
         expression.addListenerAndRunNow(reversible((expr, rev) -> {
             if (expr instanceof MathExpression exprMath) {
-                Signal poo = new Signal(() -> {
-                    System.out.println("ooo: " + expressionToEvaluated.get(exprMath).get());
+                Signal printSignal = new Signal(() -> {
+                    var x = expressionToEvaluated.get(exprMath);
+                    if (x.get() == null) {
+                        result.set(new NotANumber());
+                    } else {
+                        result.set(new IntegerO(expressionToEvaluated.get(exprMath).get()));
+                    }
+                    System.out.println("o: " + x.get());
                 });
-                exprMath.giveEvaluated(poo, rev);
+                Signal bonk = exprMath.setupEvaluated(rev);
+                rev.useSignalConnection(bonk, printSignal);
             }
         }));
     }

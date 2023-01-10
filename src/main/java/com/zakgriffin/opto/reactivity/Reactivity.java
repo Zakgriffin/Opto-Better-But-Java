@@ -5,29 +5,31 @@ import java.util.PriorityQueue;
 
 public class Reactivity {
     static final PriorityQueue<Signal> signalsToRun = new PriorityQueue<>(Comparator.comparingInt(obs -> obs.level));
-    static boolean alreadyUpdating = false;
+//    static boolean alreadyUpdating = false;
 
-    static void addBinding(Binding binding) {
 
-    }
-
-    static void removeBinding(Binding binding) {
-
-    }
-
-    public static void batchUpdate(Runnable runnable) {
-        alreadyUpdating = true;
-        runnable.run();
-        alreadyUpdating = false;
+//    public static void batchUpdate(Runnable batch) {
+//        alreadyUpdating++;
+//        batch.run();
+//        alreadyUpdating--;
 //        updateAll();
-    }
-
-//    public static void updateAll() {
-//        alreadyUpdating = true;
-//        while (!actionsToRun.isEmpty()) {
-//            Binding bindingToUpdate = actionsToRun.remove();
-//            if (bindingToUpdate.update != null) bindingToUpdate.update.run();
-//        }
-//        alreadyUpdating = false;
 //    }
+
+    public static void queueSignal(Signal signal) {
+        signalsToRun.add(signal);
+    }
+    public static void updateAll() {
+//        alreadyUpdating = true;
+        while (!signalsToRun.isEmpty()) {
+            Signal signalToRun = signalsToRun.remove();
+            signalToRun.runnable.run();
+            for(Signal nextSignal : signalToRun.nextSignals) {
+                if(!signalsToRun.contains(nextSignal)) {
+                    signalsToRun.add(nextSignal);
+
+                }
+            }
+        }
+//        alreadyUpdating = false;
+    }
 }

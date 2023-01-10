@@ -30,7 +30,7 @@ public class Multiply implements O, InfixViewO, MathExpression {
     }
 
     @Override
-    public Observable<Integer> giveEvaluated(Signal parentSignal, ReversibleContext oRev) {
-        return MathExpression.giveEvaluatedHelper(this, parentSignal, oRev, multiplier, multiplicand, (a, b) -> a * b);
+    public Signal setupEvaluated(ReversibleContext oRev) {
+        return MathExpression.setupEvaluatedHelper(this, oRev, multiplier, multiplicand, (a, b) -> a * b);
     }
 }

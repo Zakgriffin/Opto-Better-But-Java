@@ -40,4 +40,24 @@ public class Signal {
             next.propagateUpdateLevel();
         }
     }
+
+    public void trigger() {
+        Reactivity.queueSignal(this);
+        Reactivity.updateAll();
+    }
+
+    public static void main(String[] args) {
+        Signal A = new Signal(() -> System.out.println("A"));
+        Signal B = new Signal(() -> System.out.println("B"));
+        Signal C = new Signal(() -> System.out.println("C"));
+        Signal D = new Signal(() -> System.out.println("D"));
+        Signal E = new Signal(() -> System.out.println("E"));
+
+        addSignalConnection(D, E);
+        addSignalConnection(B, C);
+        addSignalConnection(B, D);
+        addSignalConnection(A, B);
+
+        A.trigger();
+    }
 }

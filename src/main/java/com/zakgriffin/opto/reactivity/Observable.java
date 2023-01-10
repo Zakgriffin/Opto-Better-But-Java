@@ -33,6 +33,14 @@ public class Observable<T> {
         changeListeners.remove(changeListener);
     }
 
+    public void removeListenerAndRunNow(ChangeListener<T> changeListener) {
+        if(!changeListeners.contains(changeListener)) {
+            System.err.println("goob");
+        }
+        changeListeners.remove(changeListener);
+        changeListener.onChange(value, null);
+    }
+
     public static void main(String[] args) {
 //        Observable<String> F = new Observable<>();
 //
