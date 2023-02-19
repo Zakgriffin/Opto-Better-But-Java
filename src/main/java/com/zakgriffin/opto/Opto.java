@@ -5,22 +5,29 @@ import com.zakgriffin.opto.reactivity.Observable;
 import com.zakgriffin.opto.types.AnyType;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.collections.ObservableSet;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import static com.zakgriffin.opto.views.Views.BACKGROUND_COLOR;
+import static com.zakgriffin.opto.views.Views.LOOKUP_BOX_BACKGROUND;
 
 public class Opto extends Application {
     public static Group root = new Group();
     public static Font ROBOTO_MONO = Font.loadFont(Opto.class.getResourceAsStream("/RobotoMono-Regular.ttf"), 12);
 
-    public static Color backgroundColor = Color.rgb(0x11, 0x11, 0x11);
-    public static Background INPUT_BOX_BACKGROUND = new Background(new BackgroundFill(Color.rgb(0x22, 0x22, 0x22), CornerRadii.EMPTY, Insets.EMPTY));
 
     public static void whiteText(Node node) {
         node.setStyle("-fx-text-fill: white;");
@@ -42,7 +49,6 @@ public class Opto extends Application {
     }
 
     public static void styleDefaultTextField(TextField textField) {
-        textField.setBackground(INPUT_BOX_BACKGROUND);
         textField.setFont(ROBOTO_MONO);
         whiteText(textField);
 
@@ -52,7 +58,7 @@ public class Opto extends Application {
     @Override
     public void start(Stage stage) {
         Scene scene = new Scene(root, 1600, 800);
-        scene.setFill(backgroundColor);
+        scene.setFill(BACKGROUND_COLOR);
 
         scene.setOnMouseClicked((clickEvent) -> {
             if (clickEvent.getClickCount() == 1) {
@@ -81,7 +87,7 @@ public class Opto extends Application {
             hbox.setTranslateY(clickEvent.getY());
 
             textField.focusedProperty().addListener((obs, oldSelected, newSelected) -> {
-                if(!newSelected && textField.getText().equals("")) {
+                if (!newSelected && textField.getText().equals("")) {
                     root.getChildren().remove(hbox);
                 }
             });

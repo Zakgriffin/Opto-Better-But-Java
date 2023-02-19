@@ -14,7 +14,7 @@ public class Register implements O, DefaultViewO {
 
     @Override
     public Node getNormalView(LookupBox owningLookupBox) {
-        return Views.defaultNormalView(this, owningLookupBox);
+        return Views.horizontalView(this, owningLookupBox);
     }
 
     public NamedObservableO[] namedObservableOs() {

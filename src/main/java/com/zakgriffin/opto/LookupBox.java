@@ -1,5 +1,7 @@
 package com.zakgriffin.opto;
 
+import com.zakgriffin.opto.reactivity.Binding;
+
 import com.zakgriffin.opto.objects.IntegerO;
 import com.zakgriffin.opto.objects.O;
 import com.zakgriffin.opto.reactivity.Observable;
@@ -9,6 +11,9 @@ import javafx.scene.Node;
 import javafx.scene.control.TextField;
 
 import java.util.function.BiConsumer;
+
+import static com.zakgriffin.opto.views.Views.BOUND_BACKGROUND;
+import static com.zakgriffin.opto.views.Views.LOOKUP_BOX_BACKGROUND;
 
 public class LookupBox {
     TextField textField = new TextField();
@@ -20,6 +25,11 @@ public class LookupBox {
         textField.setPromptText(prompt);
 
         Opto.styleDefaultTextField(textField);
+
+        Binding.getObsBinding(obsO).addListenerAndRunNow((oldBinding, newBinding) -> {
+            textField.setEditable(newBinding == null);
+            textField.setBackground(newBinding == null ? LOOKUP_BOX_BACKGROUND : BOUND_BACKGROUND);
+        });
 
         textField.textProperty().addListener((observable, oldText, newText) -> {
             if (newText.equals(oldText)) return;
@@ -61,28 +71,14 @@ public class LookupBox {
             else x = "transparent";
 
             textField.setStyle(
-                "-fx-text-fill: white;\n"+
-                "-fx-border-color: "+ x + ";\n" +
-                "-fx-border-width: 0 0 1 0;"
+                    "-fx-text-fill: white;\n" +
+                            "-fx-border-color: " + x + ";\n" +
+                            "-fx-border-width: 0 0 1 0;"
             );
         });
         obsO.addListener((oldO, newO) -> p.accept(newO, typeObs.get()));
         typeObs.addListener((oldType, newType) -> p.accept(obsO.get(), newType));
     }
-
-//    public void makeDraggable(Node dragHandle) {
-//        dragHandle.visibleProperty().bind(node.hoverProperty());
-//
-//        Point dragOffset = new Point(0, 0);
-//        dragHandle.setOnMousePressed((MouseEvent mouseEvent) -> {
-//            dragOffset.x = node.getParent().getTranslateX() - mouseEvent.getSceneX();
-//            dragOffset.y = node.getParent().getTranslateY() - mouseEvent.getSceneY();
-//        });
-//        dragHandle.setOnMouseDragged((mouseEvent) -> {
-//            node.getParent().setTranslateX(mouseEvent.getSceneX() + dragOffset.x);
-//            node.getParent().setTranslateY(mouseEvent.getSceneY() + dragOffset.y);
-//        });
-//    }
 
     public static void typeHelper(LookupBox lookupBox, TypeO type) {
         Observable<TypeO> nextDoThenType = new Observable<>();

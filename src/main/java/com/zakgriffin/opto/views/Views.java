@@ -2,6 +2,9 @@ package com.zakgriffin.opto.views;
 
 import com.zakgriffin.opto.LookupBox;
 import com.zakgriffin.opto.NamedObservableO;
+import com.zakgriffin.opto.Opto;
+import com.zakgriffin.opto.Point;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
@@ -10,7 +13,16 @@ import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
 
 public class Views {
-    public static Node defaultNormalView(DefaultViewO object, LookupBox owningLookupBox) {
+    public static Color BACKGROUND_COLOR = Color.rgb(0x11, 0x11, 0x11);
+    public static Background LOOKUP_BOX_BACKGROUND = colorBackground(Color.rgb(0x22, 0x22, 0x22));
+    public static Background HOVERED_BACKGROUND = colorBackground(Color.rgb(0x33, 0x33, 0x33));
+    public static Background BOUND_BACKGROUND = colorBackground(Color.rgb(0x22, 0x22, 0x33));
+
+    public static Background colorBackground(Color color) {
+        return new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY));
+    }
+
+    public static Node horizontalView(DefaultViewO object, LookupBox owningLookupBox) {
         HBox objectContainer = new HBox();
         return linearView(objectContainer, object, owningLookupBox);
     }
@@ -30,6 +42,7 @@ public class Views {
             addChildLookupBox(objectContainer, namedObservableOs[i], i + 1);
         }
 
+        makeDraggable(objectContainer, textField);
         return objectContainer;
     }
 
@@ -38,7 +51,7 @@ public class Views {
 
         TextField textField = owningLookupBox.getTextField();
 
-        Color fillColor = Color.rgb(0x33,0x33,0x33);
+        Color fillColor = Color.rgb(0x33, 0x33, 0x33);
 
         Arc leftCap = new Arc();
         leftCap.setRadiusX(3);
@@ -74,5 +87,37 @@ public class Views {
         });
         LookupBox.typeHelper(lookupBox, namedObservableO.type);
         objectContainer.getChildren().add(lookupBox.getTextField());
+    }
+
+    public static void makeDraggable(Node node, TextField textField) {
+//        dragHandle.visibleProperty().bind(node.hoverProperty());
+//        Opto.root.setOnKeyPressed((g) -> {
+//            textField.setEditable(false);
+//        });
+//
+//        Opto.root.setOnKeyReleased((g) -> {
+//            textField.setEditable(true);
+//        });
+
+
+//        textField.setOnMouseEntered((e) -> {
+//            textField.setBackground(HOVERED_BACKGROUND);
+//        });
+//
+//        textField.setOnMouseExited((e) -> {
+//            textField.setBackground(LOOKUP_BOX_BACKGROUND);
+//        });
+//
+        Point dragOffset = new Point(0, 0);
+        textField.setOnMousePressed((mouseEvent) -> {
+            if(!mouseEvent.isAltDown()) return;
+            dragOffset.x = node.getTranslateX() - mouseEvent.getSceneX();
+            dragOffset.y = node.getTranslateY() - mouseEvent.getSceneY();
+        });
+        textField.setOnMouseDragged((mouseEvent) -> {
+            if(!mouseEvent.isAltDown()) return;
+            node.setTranslateX(mouseEvent.getSceneX() + dragOffset.x);
+            node.setTranslateY(mouseEvent.getSceneY() + dragOffset.y);
+        });
     }
 }

@@ -16,6 +16,8 @@ public class ObjectDetails {
             new ObjectDetails(com.zakgriffin.opto.objects.math.Multiply::new, "*"),
             new ObjectDetails(com.zakgriffin.opto.objects.math.Divide::new, "/"),
             new ObjectDetails(Simplify::new, "simplify"),
+            new ObjectDetails(Function::new, "function"),
+            new ObjectDetails(Apply::new, "apply"),
     };
 
     Supplier<O> supplier;

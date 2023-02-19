@@ -1,9 +1,20 @@
 package com.zakgriffin.opto.reactivity;
 
+import com.zakgriffin.opto.objects.O;
+
 import java.util.*;
 import java.util.function.Supplier;
 
 public class Binding {
+    static ObservableMap<Observable<O>, Binding> obsToBindings = new ObservableMap<>();
+    public static Observable<Binding> getObsBinding(Observable<O> obs) {
+        return obsToBindings.computeIfAbsent(obs);
+    }
+
+    public static void addBinding(Observable<O> obs, Binding binding) {
+        obsToBindings.put(obs, binding);
+    }
+
 //    private Binding(Observable<?> observable) {
 //        observable.addListener((oldValue, newValue) -> {
 //            for (var dependingOn : dependingOns) {

@@ -4,6 +4,7 @@ import com.zakgriffin.opto.LookupBox;
 import com.zakgriffin.opto.NamedObservableO;
 import com.zakgriffin.opto.objects.math.MathExpression;
 import com.zakgriffin.opto.objects.math.NotANumber;
+import com.zakgriffin.opto.reactivity.Binding;
 import com.zakgriffin.opto.reactivity.Observable;
 import com.zakgriffin.opto.reactivity.Signal;
 import com.zakgriffin.opto.types.MathExpressionType;
@@ -20,6 +21,9 @@ public class Simplify implements O, DefaultViewO {
     Observable<O> result = new Observable<>();
 
     public Simplify() {
+        Binding binding = new Binding();
+        Binding.addBinding(result, binding);
+
         expression.addListenerAndRunNow(reversible((expr, rev) -> {
             if (expr instanceof MathExpression exprMath) {
                 Signal printSignal = new Signal(() -> {
